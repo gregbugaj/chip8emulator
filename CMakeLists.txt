@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.17...3.18)
 project(chip8emulator)
-
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(chip8emulator main.cpp Chip8State.h Chip8.cpp Chip8.h Chip8Disassembler.cpp Chip8Disassembler.h types.h fileutil.h fileutil.cpp)
+add_subdirectory(fmt)
+add_executable(chip8emulator main.cpp Chip8State.h Chip8.cpp Chip8.h Chip8Disassembler.cpp Chip8Disassembler.h types.h fileutil.h fileutil.cpp format.cc)

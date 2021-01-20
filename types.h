@@ -6,6 +6,8 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
+#include <algorithm>
+#include <string>
 
 using byte_t = u_char;
 using word_t = uint16_t; // two bytes long and stored big-endian
@@ -51,7 +53,9 @@ std::string asHexString(int width, const T &out) noexcept {
             << setfill('0'); // fill with 0s
     ss << "0x"
        << std::setw(width) << std::hex << val;
-    return ss.str();
+    std::string str = ss.str();
+    std::transform(str.begin(), str.end(),str.begin(), ::toupper);
+    return str;
 }
 
 template<class T>

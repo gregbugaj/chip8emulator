@@ -11,12 +11,20 @@ public:
      * Disassembler
      * @param filename
      */
-    void dissassembly(const std::string &filename);
+    void disassemble(const std::string &filename);
 
     /**
      * Disassembler
      * @param state
      */
-    void dissassembly(Chip8State &state);
+    void disassemble(Chip8State &state);
+
+    /**
+     * Disassemble an instructions
+     * @param pc
+     * @param opcode
+     */
+    std::string disassemble(uint16_t pc, word_t opcode);
 };
+
 #endif //CHIP8EMULATOR_CHIP8DISASSEMBLER_H

@@ -6,8 +6,10 @@
 int main(int args, char **argv) {
     std::string filename = argv[1];
     std::cout << "Starting CHIP 8 emulator : " << argv[1] << std::endl;
-    Chip8Disassembler diss;
-    diss.dissassembly(filename);
 
+    Chip8Disassembler disassembler;
+    disassembler.disassemble(filename);
+//    disassembler.disassemble(0x200, 0xE000);
+//    disassembler.disassemble(0x200, 0X017C);
     return EXIT_SUCCESS;
 }
