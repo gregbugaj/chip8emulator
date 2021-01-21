@@ -108,7 +108,7 @@ std::string Chip8Disassembler::disassemble(uint16_t pc, word_t opcode) {
         case 0x2000: // 2nnn - CALL addr
         {
             uint16_t addr = opcode & 0x0FFF;
-            str = fmt::format(color, "{0:<6X}${1:<8X}{2:<6}{3:<03x};\t2nnn - CALL addr", pc,
+            str = fmt::format(color, "{0:<6X}${1:<8X}{2:<6}{3:<03X};\t2nnn - CALL addr", pc,
                               opcode, "CALL",
                               addr);
             break;
@@ -257,7 +257,7 @@ std::string Chip8Disassembler::disassemble(uint16_t pc, word_t opcode) {
         {
             uint16_t addr = opcode & 0x0FFF;
             str = fmt::format(color,
-                              "{0:<6X}${1:<8X}{2:<6}{3:<03x};\tBnnn - JP V0, addr :  Jump to location nnn + V0",
+                              "{0:<6X}${1:<8X}{2:<6}{3:<03X};\tBnnn - JP V0, addr :  Jump to location nnn + V0",
                               pc,
                               opcode, "JP",
                               addr);
