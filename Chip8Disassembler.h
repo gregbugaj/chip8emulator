@@ -16,15 +16,16 @@ public:
     /**
      * Disassembler
      * @param state
+     * @param memory
      */
-    void disassemble(Chip8State &state);
+    void disassemble(CPU &state, Mem& memory);
 
     /**
      * Disassemble an instructions
      * @param pc
      * @param opcode
      */
-    std::string disassemble(uint16_t pc, word_t opcode);
+    std::string disassemble(Word pc, Word opcode);
 };
 
 #endif //CHIP8EMULATOR_CHIP8DISASSEMBLER_H

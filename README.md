@@ -1,5 +1,5 @@
 # chip8emulator
-Chip8 emulator / asssembler / disassembler
+Chip8 emulator / assembler / disassembler
 
 ## Compiling
 

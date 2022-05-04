@@ -12,8 +12,8 @@ using namespace fmt;
  * @param state
  * @return
  */
-word_t fetch(Chip8State &state) {
-    word_t word = (state[state.PC] << 8) | state[state.PC + 1];
+word_t fetch(CPU &state, Mem& memory) {
+    word_t word = (memory[state.PC] << 8) | memory[state.PC + 1];
     state.PC += 2;
     return word;
 }
@@ -24,26 +24,21 @@ void Chip8Disassembler::disassemble(const std::string &filename) {
     auto fsize = vec.size();
     std::cout << "ROM Size : " << fsize << std::endl;
     // Read in the rom into memory at offset of 0x200
-    auto state = Chip8State::init();
-    for (auto i = 0; i < fsize; ++i) {
-        auto buf = vec[i];
-        state->memory[Chip8State::BASE_ADDRESS + i] = buf;
-        if (false) {
-            cout << i
-                 << "\t" << asHexString(2, buf)
-                 << "\t" << asBitString(buf)
-                 << "\t" << asDecString(4, buf) << endl;
-        }
-    }
 
-    disassemble(*state);
+    Mem memory{};
+    CPU state{};
+
+    state.reset(memory);
+    state.load(memory,vec);
+
+    disassemble(state, memory);
 }
 
-void Chip8Disassembler::disassemble(Chip8State &state) {
+void Chip8Disassembler::disassemble(CPU &state, Mem& memory) {
     int index = 0;
     for (;;) {
         auto pc = state.PC;
-        word_t word = fetch(state);
+        word_t word = fetch(state, memory);
         if (0x0 == word) {
             break;
         }

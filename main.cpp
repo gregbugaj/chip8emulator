@@ -9,6 +9,7 @@ int main(int args, char **argv) {
 
     Chip8Disassembler disassembler;
     disassembler.disassemble(filename);
+
 //    disassembler.disassemble(0x200, 0xE000);
 //    disassembler.disassemble(0x200, 0X017C);
     

@@ -15,7 +15,7 @@ public:
      * @param cycles
      * @param memory
      */
-    void emulate(long cycles, Chip8State &memory);
+    void emulate(long cycles, CPU &state, Mem& memory);
 
     /**
      *
@@ -23,20 +23,7 @@ public:
      * @param memory
      * @return
      */
-    bool load(std::string &filename, Chip8State &memory);
-
-    /**
-     * Reset state
-     * @param memory
-     */
-    void reset(Chip8State &memory);
-
-    /**
-     * Print dissasembled (mnemonic codes) of the current memory state
-     * @param pc
-     * @param memory
-     */
-    void disassemble(int pc, Chip8State &memory);
+    bool load(std::string &filename, CPU &state, Mem& memory);
 };
 
 
