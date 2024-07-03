@@ -1,5 +1,5 @@
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
 #include "Chip8State.h"
 #include "Chip8Disassembler.h"
 
